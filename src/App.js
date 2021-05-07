@@ -4,7 +4,7 @@ import Reward from "react-rewards";
 import { render } from "react-dom";
 
 const config = {
-  emoji: ["🎈", "🎈", "🎈", "🎈", "🎈", "🎈", "⭐"],
+  emoji: ["🎈", "🎈", "🎈", "🎈", "🎈", "🎈", "⭐", "🦃"],
   elementCount: 100,
   spread: 150,
   zIndex: 9999,
