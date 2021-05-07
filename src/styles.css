@@ -48,6 +48,7 @@ body {
   border-radius: 10px;
   border: 1px solid hsla(0, 0%, 100%, 0.08);
   transition: all 200ms;
+  cursor: pointer;
 }
 .happy:hover {
   background: hsla(0, 0%, 100%, 0.5);

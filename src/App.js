@@ -1,17 +1,19 @@
 import "./styles.css";
-import React, { useRef } from 'react';
+import React from 'react';
 import Reward from "react-rewards";
-import { render } from "react-dom";
 
 const config = {
-  emoji: ["🎈", "🎈", "🎈", "🎈", "🎈", "🎊", "🎉", "🎁", "⭐", "🦃"],
+  emoji: ['🎈', '🎊', '🎉', '🎁', '⭐', '🦃'],
   elementCount: 100,
   spread: 150,
   zIndex: 9999,
   lifetime: 300
 };
 
-
+// Make non 🎈 emoji more rare
+for (let i = 0; i < 25; i++) {
+  config.emoji.push('🎈')
+}
 
 export default class App extends React.Component {
 
