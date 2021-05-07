@@ -1,0 +1,48 @@
+body {
+  overflow: hidden;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(101, 115, 255),
+    rgb(111, 114, 247),
+    rgb(120, 114, 239),
+    rgb(130, 113, 231),
+    rgb(139, 112, 223),
+    rgb(149, 111, 215),
+    rgb(158, 111, 208),
+    rgb(168, 110, 200),
+    rgb(177, 109, 192),
+    rgb(187, 108, 184),
+    rgb(196, 108, 176),
+    rgb(206, 107, 168)
+  );
+  height: 100vh;
+  width: 100vw;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.wrapper {
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.happy {
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 200ms;
+}
+.happy:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
