@@ -15,8 +15,19 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      count: 0
+    }
   }
-  
+
+  handleClick = () => {
+    this.reward.rewardMe()
+    this.setState(prevState => {
+      return { count: prevState.count + 1 }
+    })
+    if (this.state.count < 5) return;
+    window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  }
   render() {
     return (
       <div className="wrapper">
@@ -25,7 +36,7 @@ export default class App extends React.Component {
           type="emoji"
           config={config}
         >
-          <span className="happy" onClick={() => this.reward.rewardMe()}>
+          <span className="happy" onClick={this.handleClick}>
             Happy Birthday!
           </span>
         </Reward>
