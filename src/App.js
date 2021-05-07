@@ -1,5 +1,7 @@
 import "./styles.css";
+import React, { useRef } from 'react';
 import Reward from "react-rewards";
+import { render } from "react-dom";
 
 const config = {
   emoji: ["🎈", "🎈", "🎈", "🎈", "🎈", "🎈", "⭐"],
@@ -9,21 +11,25 @@ const config = {
   lifetime: 300
 };
 
-export default function App() {
-  return (
-    <div className="wrapper">
-      <Reward
-        className="reward"
-        ref={(ref) => {
-          this.reward = ref;
-        }}
-        type="emoji"
-        config={config}
-      >
-        <span className="happy" onClick={() => this.reward.rewardMe()}>
-          Happy Birthday!
-        </span>
-      </Reward>
-    </div>
-  );
+export default class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+  }
+  
+  render() {
+    return (
+      <div className="wrapper">
+        <Reward
+          ref={ref => this.reward = ref}
+          type="emoji"
+          config={config}
+        >
+          <span className="happy" onClick={() => this.reward.rewardMe()}>
+            Happy Birthday!
+          </span>
+        </Reward>
+      </div>
+    );
+  }
 }

@@ -1,5 +1,7 @@
 body {
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: linear-gradient(
     to bottom right,
     rgb(101, 115, 255),
