@@ -4,30 +4,51 @@ import Reward from "react-rewards";
 import { render } from "react-dom";
 
 const config = {
-  emoji: ["🎈", "🎈", "🎈", "🎈", "🎈", "🎈", "⭐", "🦃"],
+  emoji: ["🎈", "🎈", "🎈", "🎈", "🎈", "🎊", "🎉", "🎁", "⭐", "🦃"],
   elementCount: 100,
   spread: 150,
   zIndex: 9999,
   lifetime: 300
 };
 
+
+
 export default class App extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      count: 0
+      count: 0,
+      opacity: 0.25,
+      shadowSpread: 0
+    }
+    this.styles = {
+      boxShadow: `0 8px 32px ${this.state.shadowSpread} hsla(236, 63%, 33%, ${this.state.opacity})`,
+      background: `hsla(0, 0%, 100%, ${this.state.opacity})`
     }
   }
 
   handleClick = () => {
+    if (this.state.count > 3) {
+      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+      this.setState({ 
+        count: 0,
+        opacity: 0.5,
+        shadowSpread: 0
+      })
+      return
+    }
     this.reward.rewardMe()
     this.setState(prevState => {
-      return { count: prevState.count + 1 }
+      return { 
+        count: prevState.count + 1,
+        opacity: prevState.opacity + 0.2,
+        shadowSpread: prevState.shadowSpread + 1
+      }
     })
-    if (this.state.count < 5) return;
-    window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
   }
+
   render() {
     return (
       <div className="wrapper">
@@ -36,9 +57,9 @@ export default class App extends React.Component {
           type="emoji"
           config={config}
         >
-          <span className="happy" onClick={this.handleClick}>
+          <button style={this.styles} className="happy" onClick={this.handleClick}>
             Happy Birthday!
-          </span>
+          </button>
         </Reward>
       </div>
     );

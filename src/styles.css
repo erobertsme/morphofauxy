@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 body {
   overflow: hidden;
   background-repeat: no-repeat;
@@ -20,10 +21,6 @@ body {
   height: 100vh;
   width: 100vw;
 }
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
 .wrapper {
   position: absolute;
   white-space: nowrap;
@@ -33,18 +30,23 @@ body {
   transform: translate(-50%, -50%);
 }
 .happy {
-  font-size: 3rem;
-  font-weight: 600;
-  font-family: "Roboto", sans-serif;
-  padding: 2em;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  color: white;
+  font-size: 5rem;
+  text-shadow: 0px 0px 6px hsl(32, 100%, 55%);
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Pacifico', cursive;
+  padding: 1.2em;
+  /* background: hsla(0, 0%, 100%, 0.25); */
+  /* box-shadow: 0 8px 32px 0 hsla(236, 63%, 33%, 0.37); */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
   transition: all 200ms;
 }
 .happy:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: hsla(0, 0%, 100%, 0.5) !important;
+}
+.happy:focus {
+  outline: none;
 }
