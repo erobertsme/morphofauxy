@@ -62,3 +62,6 @@ body {
   font-size: 5rem;
   margin-top: 1rem;
 }
+.wrapper > div span {
+  pointer-events: none;
+}
