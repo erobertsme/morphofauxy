@@ -18,13 +18,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      count: 0,
-      opacity: 0.25,
-      shadowSpread: 0
-    }
-    this.styles = {
-      boxShadow: `0 8px 32px ${this.state.shadowSpread} hsla(236, 63%, 33%, ${this.state.opacity})`,
-      background: `hsla(0, 0%, 100%, ${this.state.opacity})`
+      count: 0
     }
   }
 
@@ -32,21 +26,24 @@ export default class App extends React.Component {
     if (this.state.count > 3) {
       window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
       this.setState({ 
-        count: 0,
-        opacity: 0.5,
-        shadowSpread: 0
+        count: 0
       })
       return
     }
     this.reward.rewardMe()
     this.setState(prevState => {
       return { 
-        count: prevState.count + 1,
-        opacity: prevState.opacity + 0.2,
-        shadowSpread: prevState.shadowSpread + 1
+        count: prevState.count + 1
       }
     })
+  }
 
+  outputCakes = (count) => {
+    const cakes = [];
+    for (let i = 0; i < count; i++) {
+      cakes.push('🎂')
+    }
+    return cakes.join('')
   }
 
   render() {
@@ -57,9 +54,10 @@ export default class App extends React.Component {
           type="emoji"
           config={config}
         >
-          <button style={this.styles} className="happy" onClick={this.handleClick}>
+          <button className="happy" onClick={this.handleClick}>
             Happy Birthday!
           </button>
+          <div class="cake">{this.outputCakes(this.state.count)}</div>
         </Reward>
       </div>
     );
