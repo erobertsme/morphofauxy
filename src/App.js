@@ -25,6 +25,11 @@ export default class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.reward.rewardMe()
+    this.addCake()
+  }
+
   addCake = () => {
     this.setState(prevState => {
       return {cakes: ['🎂', ...prevState.cakes]}
