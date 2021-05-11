@@ -20,32 +20,38 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      count: 0
+      count: 0,
+      cakes: []
     }
   }
 
-  handleClick = () => {
-    if (this.state.count > 3) {
-      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
-      this.setState({ 
-        count: 0
-      })
-      return
-    }
-    this.reward.rewardMe()
+  addCake = () => {
     this.setState(prevState => {
-      return { 
-        count: prevState.count + 1
-      }
+      return {cakes: ['🎂', ...prevState.cakes]}
     })
   }
 
-  outputCakes = (count) => {
-    const cakes = [];
-    for (let i = 0; i < count; i++) {
-      cakes.push('🎂')
+  increaseCount = () => {
+    this.setState(prevState => {
+      return {count: prevState.count + 1}
+    })
+  }
+
+  handleClick = () => {
+    // Reset after 3
+    if (this.state.count > 3) {
+      // Special bonus
+      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+
+      this.setState({count: 0})
+      return
     }
-    return cakes.join('')
+
+    // Blast Confetti
+    this.reward.rewardMe()
+
+    this.addCake()
+    this.increaseCount()
   }
 
   render() {
@@ -59,7 +65,7 @@ export default class App extends React.Component {
           <button className="happy" onClick={this.handleClick}>
             Happy Birthday!
           </button>
-          <div class="cake">{this.outputCakes(this.state.count)}</div>
+          <div className="cake">{this.state.cakes.join('')}</div>
         </Reward>
       </div>
     );
